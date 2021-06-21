@@ -1,0 +1,45 @@
+<div class="container">
+    
+    <h2 class="text-center"> Employee Data</h2>
+
+    <form class="row p-3 m-3 border border-2">
+        <div class="col-auto">
+            <input type="text" placeholder="Employee Name" class="form-control" #eName>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Employee Id" class="form-control form-control-number" #eId>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Employee Age" class="form-control form-control-number" #eAge>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="addEmployee({name: eName.value, id: eId.value, age: eAge.value})">Add</button>
+        </div>
+    </form>
+
+    
+    <div class="row">
+        <ul class="list-group list-group-horizontal col">
+            <li class="list-group-item flex-fill col-4 align-self-center active">ID</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Name</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Age</li>
+        </ul>
+        <div class="col-1 bg-white filler"></div>
+    </div>
+    
+     
+    <div class="row" *ngFor="let e of employees">
+        
+            <ul class="list-group list-group-horizontal col">
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.id }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.name }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.age }}</li>
+                
+            </ul>
+            
+            <button class=" col-1 btn btn-sm btn-outline-danger rm1" (click)="removeEmployee(e)"><i class="far fa-trash-alt"></i></button>
+        
+    </div>
+
+    
+</div>
